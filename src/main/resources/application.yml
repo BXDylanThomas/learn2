@@ -1,0 +1,44 @@
+server:
+  port: 10003
+
+spring:
+  application:
+    name: insuring
+  datasource:
+    url: jdbc:mysql://49.235.29.59:3301/insuring?useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #连接池
+    type: com.alibaba.druid.pool.DruidDataSource
+
+  redis:
+    host: 49.235.29.59
+    port: 6380
+    database: 0
+    timeout: 10000
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
+
+mybatis:
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  print:
+    enable: true
+
+mybatis-plus:
+  configuration:
+    cache-enabled: true
+logging:
+  level:
+    root: info
+
+devtools:
+  restart: true
+  livereload:
+    enabled: true #是否支持livereload
+    port: 35729
