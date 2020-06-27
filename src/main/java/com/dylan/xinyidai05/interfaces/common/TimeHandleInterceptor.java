@@ -2,6 +2,7 @@ package com.dylan.xinyidai05.interfaces.common;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,7 +26,7 @@ public class TimeHandleInterceptor implements HandlerInterceptor {
 	}
 
 	@Override
-	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
 		String url = request.getRequestURI();
 		LocalDateTime start = timeThreadLocal.get();
 		log.info("请求：{} 总耗时：{}s",url,Duration.between(start, LocalDateTime.now()).getSeconds());

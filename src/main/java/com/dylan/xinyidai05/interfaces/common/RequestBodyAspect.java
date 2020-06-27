@@ -10,6 +10,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * code is far away from bug with the animal protecting
  *
@@ -32,8 +34,8 @@ public class RequestBodyAspect {
 	@Around(value = "annotationCut()")
 	public Object pointCut(ProceedingJoinPoint joinPoint) throws Throwable {
 		Object[] args = joinPoint.getArgs();
-
 		ServletRequestAttributes requestAttributes = (ServletRequestAttributes)RequestContextHolder.currentRequestAttributes();
+		HttpServletRequest request = requestAttributes.getRequest();
 		log.info("请求：{}，参数:{}",requestAttributes.getRequest().getRequestURI(), JSONObject.toJSONString(args));
 		Object proceed = joinPoint.proceed();
 		return proceed;
