@@ -2,6 +2,7 @@ package com.dylan.xinyidai05.interfaces.facade;
 
 import com.dylan.xinyidai05.application.RedisTest;
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * code is far away from bug with the animal protecting
@@ -18,6 +20,7 @@ import java.io.Serializable;
  */
 @RestController
 @RequestMapping("/redis")
+@Slf4j
 public class RedisController {
 
 	@Autowired
@@ -44,6 +47,18 @@ public class RedisController {
 	public Object test3(String id){
 		return redisTest.cacheTest2(id);
 	}
+
+	@GetMapping("/format")
+	public LocalDateTime format(){
+		return LocalDateTime.now();
+	}
+
+	@GetMapping("/format2")
+	public LocalDateTime format2(LocalDateTime localDateTime){
+		log.info("{}",localDateTime);
+		return LocalDateTime.now();
+	}
+
 	@Data
 	public static class RedisModel implements Serializable {
 		private String key;

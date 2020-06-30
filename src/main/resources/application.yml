@@ -1,5 +1,11 @@
 server:
   port: 10003
+  # 配置扫描路径
+  servlet:
+    context-path: /
+  #错误路径
+  error:
+    path: error
 
 spring:
   application:
@@ -23,6 +29,9 @@ spring:
         max-wait: -1
         max-idle: 8
         min-idle: 0
+  banner:
+    image:
+      location: application.yml
 
 mybatis:
 #  configuration:
@@ -36,6 +45,11 @@ mybatis-plus:
 logging:
   level:
     root: info
+  file:
+    name: a.log
+    max-size: 10GB
+  pattern:
+    console: '%red(%M) %clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}'
 
 devtools:
   restart: true

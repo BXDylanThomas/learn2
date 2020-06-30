@@ -1,7 +1,6 @@
 package com.dylan.xinyidai05.domain.common.validation.check;
 
 import com.dylan.xinyidai05.domain.common.validation.constraints.Money;
-import com.sun.org.apache.xerces.internal.impl.dtd.models.ContentModelValidator;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

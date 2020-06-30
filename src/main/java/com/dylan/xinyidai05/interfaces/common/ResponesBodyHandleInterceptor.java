@@ -7,6 +7,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 import java.lang.reflect.Executable;
@@ -17,7 +18,7 @@ import java.lang.reflect.Executable;
  * @Author : dylan
  * @Date :create in 2020/6/27 21:23
  */
-@ControllerAdvice
+@RestControllerAdvice
 @Slf4j
 public class ResponesBodyHandleInterceptor implements ResponseBodyAdvice {
 
