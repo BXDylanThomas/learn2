@@ -5,9 +5,9 @@ import com.dylan.xinyidai05.domain.Entity.Beneficiary;
 import com.dylan.xinyidai05.domain.Entity.Insured;
 import com.dylan.xinyidai05.infrastructure.persitence.entity.tb.InsuredDO;
 import com.dylan.xinyidai05.infrastructure.persitence.service.tb.InsuredService;
+import org.springframework.util.CollectionUtils;
 
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 /**
  * code is far away from bug with the animal protecting
@@ -35,7 +35,11 @@ public class InsuredInfo extends AbstractContractInfoQuery<InsuredDO, List<Insur
 	@Override
 	public QueryWrapper<InsuredDO> getQueryCondition() {
 		QueryWrapper<InsuredDO> queryWrapper = new QueryWrapper<>();
-		queryWrapper.lambda().eq(InsuredDO::getApplicationformNo,condition.getPrtNo());
+		if (CollectionUtils.isEmpty(condition.getInsuredNos())){
+			queryWrapper.lambda().eq(InsuredDO::getApplicationformNo,condition.getPrtNo());
+		}else{
+			queryWrapper.lambda().eq(InsuredDO::getApplicationformNo,condition.getPrtNo()).in(InsuredDO::getInsuredNo, condition.getInsuredNos());
+		}
 		return queryWrapper;
 	}
 

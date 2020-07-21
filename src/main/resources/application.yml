@@ -1,12 +1,5 @@
 server:
   port: 10003
-  # 配置扫描路径
-  servlet:
-    context-path: /
-  #错误路径
-  error:
-    path: error
-
 spring:
   application:
     name: insuring

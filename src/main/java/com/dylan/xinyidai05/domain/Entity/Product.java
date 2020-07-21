@@ -3,6 +3,8 @@ package com.dylan.xinyidai05.domain.Entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.dylan.xinyidai05.domain.common.Entity;
+import com.dylan.xinyidai05.domain.tb.contract.info.ProductDutyInfo;
 import com.dylan.xinyidai05.infrastructure.persitence.common.BaseEntity;
 import lombok.Builder;
 import lombok.Data;
@@ -19,10 +21,8 @@ import java.util.Date;
  */
 @Data
 @Builder
-@TableName("trade_product")
-public class ProductDO extends BaseEntity implements Serializable {
+public class Product extends Entity {
 
-    @TableId(type = IdType.AUTO)
     private Long productId;
     // 投保单号
     private String applicationformNo;
@@ -108,5 +108,10 @@ public class ProductDO extends BaseEntity implements Serializable {
     private String uwTime;
     // 最终核保人编码
     private String uwCode;
+
+    //产品信息
+    private ProductDes productDesInfo;
+    //责任信息
+    private ProductDutyInfo productDutyInfo;
 
 }

@@ -3,6 +3,7 @@ package com.dylan.xinyidai05.domain.Entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.dylan.xinyidai05.domain.common.Entity;
 import com.dylan.xinyidai05.infrastructure.persitence.common.BaseEntity;
 import lombok.Data;
 
@@ -15,10 +16,8 @@ import java.io.Serializable;
  * @Date :create in 2020/6/25 20:04
  */
 @Data
-@TableName("trade_person_address")
-public class PersonAddressDO extends BaseEntity implements Serializable {
+public class PersonAddressDO extends Entity {
 
-	@TableId(type = IdType.AUTO)
 	private Integer id;
 	//客户号
 	private String customerNo;

@@ -4,6 +4,9 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * code is far away from bug with the animal protecting
  *
@@ -15,8 +18,8 @@ public class Condition {
 	private String prtNo;
 	private String contNo;
 	private String appntNo;
-	private String insuredNo;
-	private String riskCode;
+	private List<String> insuredNos;
+	private List<String> riskCodes;
+	private Map<String,String> insuredOfRiskCodes;
 
-	private InfoQuery infoQuery;
 }

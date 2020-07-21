@@ -3,6 +3,7 @@ package com.dylan.xinyidai05.domain.Entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.dylan.xinyidai05.domain.common.Entity;
 import com.dylan.xinyidai05.infrastructure.persitence.common.BaseEntity;
 import lombok.Data;
 
@@ -16,10 +17,8 @@ import java.util.Date;
  * @create 2019-09-26 18:26
  */
 @Data
-@TableName("trade_service_order")
-public class ServiceOrderDO extends BaseEntity implements Serializable {
+public class ServiceOrderDO extends Entity {
 
-    @TableId(type = IdType.AUTO)
     private Long id;
     // 服务申请ID
     private String transactionNo;

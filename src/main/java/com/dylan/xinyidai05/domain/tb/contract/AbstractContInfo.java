@@ -16,13 +16,7 @@ public interface AbstractContInfo {
 
 	PolicyInfo addInsuered();
 
-	PolicyInfo addSignleInsuered();
-
-	PolicyInfo addInsueredByInsuredNo(String insuredNo);
-
 	PolicyInfo addProduct();
-
-	PolicyInfo addProductByInsuredNo(String insuredNo);
 
 	PolicyInfo addProductByRiskCodes(List<String> riskCodes);
 

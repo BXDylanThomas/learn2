@@ -1,8 +1,11 @@
 package com.dylan.xinyidai05.interfaces.facade;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.dylan.xinyidai05.infrastructure.persitence.entity.finace.PaymentDO;
+import com.dylan.xinyidai05.infrastructure.persitence.mapper.finace.PaymentMapper;
 import com.dylan.xinyidai05.infrastructure.persitence.service.finace.PaymentService;
 import com.dylan.xinyidai05.interfaces.dto.PaymentReq;
 import com.fasterxml.jackson.annotation.JsonView;
@@ -22,6 +25,9 @@ public class PaymentController {
 
 	@Autowired
 	private PaymentService paymentService;
+
+	@Autowired
+	private PaymentMapper paymentMapper;
 
 	@GetMapping("/get")
 	public Object get(){
@@ -54,5 +60,10 @@ public class PaymentController {
 		IPage<PaymentDO> iPage = new Page<>(1,1);
 		return paymentService.page(iPage);
 	}
+	@GetMapping("/select")
+	public Object select(){
+		return  paymentMapper.select(Wrappers.<PaymentDO>query().lambda().eq(PaymentDO::getId,3).last("limit 1"));
+	}
+
 
 }

@@ -1,5 +1,6 @@
 package com.dylan.xinyidai05.domain.tb.contract;
 
+import com.dylan.xinyidai05.domain.tb.contract.info.AbstractContractInfoQuery;
 import com.dylan.xinyidai05.domain.util.SpringContextUtil;
 
 /**
@@ -11,7 +12,7 @@ import com.dylan.xinyidai05.domain.util.SpringContextUtil;
 public abstract class AbstractContInfoFactory implements AbstractContInfo{
 	private boolean needProductDuty;
 
-	protected <T> T getBean(Class<T> clazz){
-		return SpringContextUtil.getBean(clazz);
+	protected  AbstractContractInfoQuery getBean(Class clazz){
+		return (AbstractContractInfoQuery) SpringContextUtil.getBean(clazz);
 	}
 }
